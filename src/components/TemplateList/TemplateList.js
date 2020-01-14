@@ -17,10 +17,14 @@ const TemplateContainer = styled.div`
   flex-wrap: wrap;
 `;
 
+const Heading = styled.h2`
+  font-family: 'Roboto', sans-serif;
+`;
+
 const TemplateList = ({ templates }) => (
   <div>
     <Header>
-      <h2>Templates</h2>
+      <Heading>Templates</Heading>
       <Link to="/new">
         <Button type="button">Add Template</Button>
       </Link>
