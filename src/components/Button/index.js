@@ -3,22 +3,22 @@ import styled from 'styled-components';
 export default styled.button`
   display: inline-block;
   padding: 0.5em 3em;
-  border: 0.16em solid #ffffff;
+  border: 0.16em solid #bbbbbb;
   margin: 0 0.3em 0.3em 0;
   box-sizing: border-box;
   text-decoration: none;
   text-transform: uppercase;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  color: #ffffff;
+  color: #bbbbbb;
   text-align: center;
   transition: all 0.15s;
   &:hover {
-    color: #bbbbbb;
-    border-color: #bbbbbb;
+    color: #dddddd;
+    border-color: #dddddd;
   }
   &:active {
-    color: #bbbbbb;
-    border-color: #bbbbbb;
+    color: #dddddd;
+    border-color: #dddddd;
   }
 `;
