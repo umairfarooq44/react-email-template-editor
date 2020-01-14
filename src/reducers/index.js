@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import user from './userReducer';
+import templates from './templateReducer';
 
 const rootReducer = combineReducers({
-  user,
+  templates,
 });
 
 export default rootReducer;

@@ -1,4 +1,4 @@
-// Booking actions
-export const GET_USER = 'GET_USER';
-export const DUMMY_1 = 'TEST_DELETE_THIS_LATER_1';
-export const DUMMY_2 = 'TEST_DELETE_THIS_LATER_2';
+// Template actions
+export const GET_TEMPLATE = 'GET_TEMPLATE';
+export const ADD_EDIT_TEMPLATE = 'ADD_EDIT_TEMPLATE';
+export const GET_TEMPLATE_LIST = 'GET_TEMPLATE_LIST';
