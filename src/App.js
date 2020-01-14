@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
+import styled from 'styled-components';
 
 // Routes
 import Routes from './Routes';
@@ -10,12 +11,18 @@ import createStore from './store';
 
 const STORE = createStore();
 
+const Container = styled.div`
+  padding: 0 5%;
+`;
+
 const App = () => {
   return (
     <Provider store={STORE}>
-      <Router>
-        <Routes />
-      </Router>
+      <Container>
+        <Router>
+          <Routes />
+        </Router>
+      </Container>
     </Provider>
   );
 };

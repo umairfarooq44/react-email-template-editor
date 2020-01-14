@@ -1,17 +1,35 @@
 import React from 'react';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import ListItem from '../ListItem';
+import Button from '../Button';
+
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const TemplateContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 const TemplateList = ({ templates }) => (
   <div>
-    <Link to="/new">
-      <button type="button">Add Template</button>
-    </Link>
-    {templates.map(item => (
-      <ListItem title={item.title} id={item.id} />
-    ))}
+    <Header>
+      <h2>Templates</h2>
+      <Link to="/new">
+        <Button type="button">Add Template</Button>
+      </Link>
+    </Header>
+    <TemplateContainer>
+      {templates.map(item => (
+        <ListItem title={item.title} id={item.id} />
+      ))}
+    </TemplateContainer>
   </div>
 );
 

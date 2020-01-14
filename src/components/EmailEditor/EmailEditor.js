@@ -1,17 +1,30 @@
 import React, { useRef, useState } from 'react';
 import EmailEditor from 'react-email-editor';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
 import addUpdateTemplate from '../../actions/templateActions';
+import Button from '../Button';
+
+const FormContainer = styled.form`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+`;
 
 const TemplateEditor = ({ addUpdateEmailTemplate, match, history, designTemplate = {} }) => {
   const [title, setTitle] = useState(designTemplate.title || '');
   const editorRef = useRef(null);
 
   const onLoad = () => {
-    if (designTemplate.design && editorRef.current) {
-      editorRef.current.loadDesign(designTemplate.design);
+    if (designTemplate.design) {
+      // because ref was undefined so using https://github.com/unlayer/react-email-editor/issues/7#issuecomment-348227970
+      if (editorRef.current) {
+        editorRef.current.loadDesign(designTemplate.design);
+      } else {
+        setTimeout(() => editorRef.current.loadDesign(designTemplate.design), 3000);
+      }
     }
   };
 
@@ -31,10 +44,16 @@ const TemplateEditor = ({ addUpdateEmailTemplate, match, history, designTemplate
 
   return (
     <div>
-      <form onSubmit={saveDesign}>
-        <input required type="text" value={title} onChange={e => setTitle(e.target.value)} />
-        <button type="submit">Save Template</button>
-      </form>
+      <FormContainer onSubmit={saveDesign}>
+        <input
+          required
+          type="text"
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+          maxLength={15}
+        />
+        <Button type="submit">Save Template</Button>
+      </FormContainer>
       <EmailEditor ref={editorRef} onLoad={designTemplate.design && onLoad} />
     </div>
   );
